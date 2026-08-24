@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高知民Tシャツ | AbeSite</title>
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .tshirt-item-container { text-align: center; width: calc(50% - 20px); max-width: 380px; }
+        .magnify-hover-area { position: relative; display: inline-block; cursor: pointer; }
+        .base-tshirt-img { display: block; max-width: 100%; height: auto; transition: filter 0.3s ease, opacity 0.3s ease; }
+        
+        .popup-design-img {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.5);
+            max-width: 300px; max-height: 300px;
+            
+            /* ★変更点：黒枠と白背景を削除し、デザインの形に沿って影をつける */
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3)); 
+            
+            object-fit: contain;
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            z-index: 100;
+        }
+        
+        .magnify-hover-area:hover .popup-design-img { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
+        .magnify-hover-area:hover .base-tshirt-img { filter: grayscale(80%) blur(2px) opacity(40%); }
+        .tshirt-label { font-size: 0.85rem; color: #777; margin-top: 15px; font-family: sans-serif; margin-bottom: 0; }
+    </style>
+
+    </head>
+<body>
+    <div class="works-container">
+        <header class="works-header">
+            <div class="page-title-area">
+                <img src="../images/common/nav-works.png" alt="Works" class="page-title-img">
+            </div>
+            <div class="back-link-container">
+                <a href="../works.html"><img src="../images/common/btn-return.png" alt="もどる" class="btn-return"></a>
+            </div>
+        </header>
+
+        <article class="work-detail-content">
+            <div class="work-title">
+                <img src="../images/works/kochiminT_title.png" alt="高知民Tシャツ">
+            </div>
+
+            <div class="work-description">
+                <p>
+                    高知に移住した友達夫婦に向けて作ったTシャツ。<br>
+                    ホーチミンと高知民響きも綴りも似ていたから作ってみた。<br>
+                    Made T-shirts for a friend couple who moved to Kochi.<br>
+                    I came up with it because “Ho Chi Minh” and “Kochimin” sound and spell similar.
+                </p>
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 50px; max-width: 800px; margin-left: auto; margin-right: auto; flex-wrap: wrap;">
+                
+                <div class="tshirt-item-container">
+                    
+                    <div class="magnify-hover-area">
+                        <img src="../images/works/kochiminT_front.png" alt="高知民Tシャツ フロント" class="base-tshirt-img">
+                        
+                        <img src="../images/works/kochiminT_front_design.png" alt="高知民Tシャツ フロント拡大デザイン" class="popup-design-img">
+                    </div>
+                    
+                    <p class="tshirt-label">Front Design</p>
+                </div>
+
+                <div class="tshirt-item-container">
+                    
+                    <div class="magnify-hover-area">
+                        <img src="../images/works/kochiminT_back.png" alt="高知民Tシャツ バック" class="base-tshirt-img">
+                        
+                        <img src="../images/works/kochiminT_back_design.png" alt="高知民Tシャツ バック拡大デザイン" class="popup-design-img">
+                    </div>
+                    
+                    <p class="tshirt-label">Back Design</p>
+                </div>
+
+            </div>
+
+        </article>
+
+        <footer><small>&copy; 2026 AbeSite</small></footer>
+    </div>
+</body>
+</html>

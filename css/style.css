@@ -1,0 +1,413 @@
+@charset "UTF-8";
+
+/* ============================================
+   1. ベース設定 (Base)
+   ============================================ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Zen Maru Gothic", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    color: #333;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+/* ============================================
+   2. レイアウト用コンテナ (Layout)
+   ============================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.works-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.bio-hero-container {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+/* ============================================
+   3. ヘッダー & ナビゲーション (Header & Nav)
+   ============================================ */
+header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+.logo img {
+    width: 200px;
+    height: auto;
+}
+
+.main-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.menu-img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+/* 詳細ページ用ヘッダー */
+.works-header {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.page-title-img {
+    height: 50px;
+    margin-bottom: 20px;
+}
+.back-link-container {
+    margin-top: 10px;
+}
+.btn-return {
+    height: 20px;
+    width: auto;
+}
+
+/* ============================================
+   4. Works / Paints / Podcast 共通グリッド設定
+   ============================================ */
+.works-grid-reproduction,
+.paints-grid-gapless {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto; /* 行を自動追加 */
+    gap: 0; /* 隙間なし */
+    margin-top: 40px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 正方形の共通設定 */
+.work-square {
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0; /* 角丸なし */
+    overflow: hidden;
+    position: relative;
+    
+    /* ★修正：枠線を削除しました */
+    border: none; 
+}
+
+.work-square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.work-square:hover img {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+/* ============================================
+   5. Paints (登山部) 専用の上書き設定
+   ============================================ */
+.work-square.paint-bg-1 { background-color: #33ff33 !important; }
+.work-square.paint-bg-2 { background-color: #33cc33 !important; }
+.work-square.paint-bg-3 { background-color: #229922 !important; }
+.work-square.paint-bg-4 { background-color: #116611 !important; }
+
+/* Paintsの文字ロゴは全体を見せる */
+.work-square[class*="paint-bg"] img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+
+.paints-grid-gapless .work-square:hover img {
+    transform: none;
+    opacity: 0.8;
+}
+
+/* ============================================
+   6. 詳細ページ (Common Details)
+   ============================================ */
+.work-detail-content {
+    margin-top: 40px;
+    text-align: center;
+}
+.work-title { margin-bottom: 30px; }
+.work-title img { height: 60px; width: auto; }
+.work-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.work-main-image img {
+    max-width: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+/* 詳細ページの帯 (Paint/Podcast) */
+.paint-hero {
+    width: 100%;
+    padding: 8px 0;
+    text-align: center;
+    margin-bottom: 60px;
+}
+.paint-hero-1 { background-color: #33ff33; }
+.paint-hero-2 { background-color: #33cc33; }
+.paint-hero-3 { background-color: #229922; }
+.paint-hero-4 { background-color: #116611; }
+.paint-hero-title img { height: 30px; width: auto; vertical-align: middle; }
+
+/* 左右レイアウト */
+.paint-layout {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+    margin-bottom: 60px;
+}
+.paint-text-area {
+    width: 40%;
+    font-size: 0.95rem;
+    line-height: 2.0;
+    margin-top: 20px;
+}
+.paint-text-area .en-text {
+    margin-top: 20px;
+    color: #666;
+    font-size: 0.85rem;
+}
+.paint-image-area {
+    width: 55%;
+    display: flex;
+    justify-content: flex-end;
+}
+.image-frame {
+    border: 1px solid #000;
+    padding: 40px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+/* ============================================
+   7. Podcastページ専用調整
+   ============================================ */
+.bio-hero-container.bio-bottom-section > div:first-child img {
+    max-width: 400px;
+    width: 80%;
+    height: auto;
+}
+.paint-layout .paint-text-area { font-size: 1.05rem; }
+.paint-image-area .image-frame { max-width: 500px; padding: 30px; }
+
+/* ============================================
+   8. フッター & スマホ対応
+   ============================================ */
+footer {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #999;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 800px) {
+    .main-menu ul { gap: 15px; }
+    .menu-img { height: 40px; }
+    .works-grid-reproduction,
+    .paints-grid-gapless { 
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .paint-layout { flex-direction: column; gap: 40px; }
+    .paint-text-area, .paint-image-area { width: 100%; }
+    .paint-image-area { justify-content: center; }
+    .image-frame { max-width: 100%; padding: 20px; }
+}
+
+/* ============================================
+   9. Biography 専用デザイン
+   ============================================ */
+.bio-content-area {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.bio-neon-hero {
+    width: 100%;
+    background: linear-gradient(125deg, 
+        #ff2e63 0%, 
+        #ff00cc 25%, 
+        #b983ff 50%, 
+        #00d4ff 75%, 
+        #00ff99 100%
+    );
+    min-height: 350px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.bio-neon-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.bio-triangle-img {
+    width: 160px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.bio-title {
+    font-family: sans-serif;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #222;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.bio-subtitle {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #333;
+    margin: 5px 0 0;
+    letter-spacing: 0.05em;
+}
+
+.bio-text-jp, .bio-text-en {
+    text-align: left;
+    line-height: 2.2;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    max-width: 100%; 
+    padding: 0 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.bio-text-en {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 40px;
+}
+.bio-sns-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 60px;
+}
+.bio-sns-links img {
+    height: 30px;
+    width: auto;
+    transition: opacity 0.3s;
+}
+.bio-sns-links img:hover {
+    opacity: 0.6;
+}
+/* ============================================
+   10. Sitemap ページ設定
+   ============================================ */
+
+.sitemap-content {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.sitemap-section {
+    margin-bottom: 40px;
+    border-bottom: 1px dotted #ccc; /* 各セクションの下に点線 */
+    padding-bottom: 20px;
+}
+
+.sitemap-section h3 {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #000;
+    border-left: 4px solid #333; /* 左側にアクセントの線 */
+    padding-left: 10px;
+}
+
+.sitemap-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sitemap-section li {
+    margin-bottom: 10px;
+}
+
+.sitemap-section a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #333;
+    display: inline-block;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.sitemap-section a:hover {
+    color: #00d4ff; /* ホバー時にネオンブルーに */
+    transform: translateX(5px); /* 右に少し動く */
+}
+
+/* 階層が下のリンク（個別ページなど） */
+.sub-link {
+    margin-left: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+.sub-link::before {
+    content: "└ "; /* ツリー構造っぽい記号 */
+    color: #ccc;
+}
